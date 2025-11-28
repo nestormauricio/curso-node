@@ -1,17 +1,56 @@
 const express = require("express");
 const app = express();
+const port = 3000;
 
 app.use(express.json());
 
-// Importar router
-const saludoRouter = require("./routes/saludo.routes");
+// Rutas
+const usuariosRoutes = require("./routes/usuarios.routes");
+app.use(usuariosRoutes);
 
-// Usar router
-app.use("/", saludoRouter);
-
-app.listen(3000, () => {
-    console.log("API corriendo en http://localhost:3000");
+app.get("/ping", (req, res) => {
+    res.json({ message: "pong" });
 });
+
+app.listen(port, () => {
+    console.log(`API corriendo en http://localhost:${port}`);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const express = require("express");
+// const app = express();
+
+// app.use(express.json());
+
+// // Importar router
+// const saludoRouter = require("./routes/saludo.routes");
+
+// // Usar router
+// app.use("/", saludoRouter);
+
+// app.listen(3000, () => {
+//     console.log("API corriendo en http://localhost:3000");
+// });
 
 
 
