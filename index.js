@@ -1,23 +1,62 @@
+require("dotenv").config();
 const express = require("express");
 const conectarDB = require("./config/database");
 
 const app = express();
 app.use(express.json());
 
-// Conectar BD
-conectarDB();
+// Conectar BD usando variable de entorno
+conectarDB(process.env.MONGO_URI);
 
 // Rutas
 const usuariosRouter = require("./routes/usuarios.routes");
 app.use("/", usuariosRouter);
 
-// Servidor
-app.listen(3000, () => {
-    console.log("API corriendo en http://localhost:3000");
+// Levantar servidor
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`API corriendo en http://localhost:${PORT}`);
 });
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const express = require("express");
+// const conectarDB = require("./config/database");
+
+// const app = express();
+// app.use(express.json());
+
+// // Conectar BD
+// conectarDB();
+
+// // Rutas
+// const usuariosRouter = require("./routes/usuarios.routes");
+// app.use("/", usuariosRouter);
+
+// // Servidor
+// app.listen(3000, () => {
+//     console.log("API corriendo en http://localhost:3000");
+// });
 
 
 
