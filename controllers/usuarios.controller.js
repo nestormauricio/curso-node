@@ -21,6 +21,25 @@ const obtenerUsuarioPorId = async (req, res) => {
 
 // Crear
 const crearUsuario = async (req, res) => {
+    // try {
+    //     const { nombre } = req.body;
+
+    //     if (!nombre) {
+    //         return res.status(400).json({ mensaje: "El campo 'nombre' es obligatorio" });
+    //     }
+
+    //     const nuevoUsuario = {
+    //         id: usuarios.length + 1,
+    //         nombre
+    //     };
+
+    //     usuarios.push(nuevoUsuario);
+    //     res.status(201).json(nuevoUsuario);
+
+    // } catch (error) {
+    //     console.error("ERROR INTERNO:", error); // <-- AÑADE ESTO
+    //     res.status(500).json({ mensaje: "Error en el servidor", error });
+    // }
     try {
         const { nombre } = req.body;
         if (!nombre) {
@@ -30,9 +49,14 @@ const crearUsuario = async (req, res) => {
         const nuevo = await Usuario.create({ nombre });
         res.status(201).json(nuevo);
 
-    } catch (error) {
-        res.status(500).json({ mensaje: "Error en el servidor", error });
-    }
+    } //catch (error) {
+        //res.status(500).json({ mensaje: "Error en el servidor", error });
+    //}
+    catch (error) {
+    console.error("🔥 ERROR REAL:", error.message);
+    console.error(error); // imprime stack completo
+    return res.status(500).json({ mensaje: "Error en el servidor" });
+}
 };
 
 // Actualizar
