@@ -1,3 +1,75 @@
+# =====================
+#   NODE / JAVASCRIPT
+# =====================
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
 *.log
+log.txt
+
+# Coverage
+coverage/
+*.lcov
+
+# =====================
+#   GO
+# =====================
+# Compiled binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go workspace
+go.work
+go.work.sum
+
+# Go build cache
+/go-app/bin/
+/go-app/build/
+/go-app/tmp/
+/go-app/.cache/
+
+# Go test cache
+*.test
+
+# =====================
+#   OS / EDITOR FILES
+# =====================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# node_modules/
+# .env
+# *.log
